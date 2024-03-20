@@ -141,7 +141,7 @@ acButton.addEventListener("click", () =>{
 // dot button
 const dotButton = document.querySelector("#btn-dot");
 dotButton.addEventListener("click", () =>{
-    if (!numberDisplay.textContent.includes(".") ){
+    if (!numberDisplay.textContent.includes(".") && !justCalculated ){
         if (numberDisplay.textContent === ""){
             numberDisplay.textContent = "0.";
         } else {
@@ -149,5 +149,3 @@ dotButton.addEventListener("click", () =>{
         }
     }
 });
-
-// new problem, during calculation, after finishing a calculation, if I try to press dot and add more decimals, it skips me into the next input
