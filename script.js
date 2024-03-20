@@ -123,7 +123,7 @@ function grabAndExecute(){
             return;
         }
         var1 = operate(var1, var2);
-        numberDisplay.textContent = var1;
+        numberDisplay.textContent = Math.round(var1 * 1e12) / 1e12;
 
         var2 = null;
 }
