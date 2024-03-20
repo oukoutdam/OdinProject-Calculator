@@ -47,3 +47,10 @@ for(let btn of numButtons){
         numberDisplay.textContent = numberDisplay.textContent + btn.textContent;
     })
 }
+
+// clear button
+const clearButton = document.querySelector("#btn-c");
+clearButton.addEventListener("click", () => {
+    numberDisplay.textContent = "";
+})
+
