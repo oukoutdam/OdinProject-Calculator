@@ -31,7 +31,7 @@ function operate(){
             return mul(var1, var2);
             break;
         case "/":
-            return divide(var1, var2);
+            return div(var1, var2);
             break;
     }
 
@@ -42,7 +42,12 @@ function operate(){
 const numButtons = document.querySelectorAll(".btn-num");
 for(let btn of numButtons){
     btn.addEventListener("click", () =>{
-        numberDisplay.textContent = numberDisplay.textContent + btn.textContent;
+        if (operation === null){
+            numberDisplay.textContent = numberDisplay.textContent + btn.textContent;
+        } else {
+            numberDisplay.textContent = "";
+            numberDisplay.textContent = numberDisplay.textContent + btn.textContent;
+        }
     })
 }
 
@@ -78,33 +83,12 @@ bsButton.addEventListener("click", () => {
 */
 const opButtons = document.querySelectorAll(".btn-op");
 for(let opbtn of opButtons){
-    opbtn.addEventListener("click", () => {
-        if (numberDisplay.textContent === ""){
-            console.log("There is no input");
-        } else {
-            if ( var1 === null){
-                var1 = parseFloat(numberDisplay.textContent);
-                operation = opbtn.textContent; 
-                numberDisplay.textContent = "";
-            } else {
-                numberDisplay.textContent = "";
-                operation = opbtn.textContent;
-                // var2 = parseFloat(numberDisplay.textContent);
-                // var1 = operate();
-                // numberDisplay.textContent = var1;
-
-                // var2 = null;
-            }
-        }
-    });
+    opbtn.addEventListener("click", () => {});
 }
 
 // equal button : operate()
 const eqButton = document.querySelector("#btn-eq");
-eqButton.addEventListener("click", () =>{
-    var2 = parseFloat(numberDisplay.textContent);
-    var1 = operate();
-    numberDisplay.textContent = var1;
+eqButton.addEventListener("click", () =>{});
 
-    var2 = null;
-});
+// current problem is that the program cannot do continuous calculations correctly
+// 
