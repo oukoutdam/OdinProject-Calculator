@@ -1,5 +1,6 @@
 let var1 = null, var2 = null, operation = null;
 const numberDisplay = document.querySelector("#display");
+let justCalculated = false;
 
 // calculator operations
 function add(num1, num2){
@@ -42,25 +43,31 @@ function operate(){
 const numButtons = document.querySelectorAll(".btn-num");
 for(let btn of numButtons){
     btn.addEventListener("click", () =>{
-        if (operation === null){
+        if ( justCalculated === false){
             numberDisplay.textContent = numberDisplay.textContent + btn.textContent;
         } else {
             numberDisplay.textContent = "";
             numberDisplay.textContent = numberDisplay.textContent + btn.textContent;
+            justCalculated = false;
         }
-    })
+    });
 }
 
 // clear button
 const clearButton = document.querySelector("#btn-c");
 clearButton.addEventListener("click", () => {
-    numberDisplay.textContent = "";
+    // prevent deletion of result
+    if (!justCalculated){ 
+        numberDisplay.textContent = "";
+    }
 })
 
 // backspace button
 const bsButton = document.querySelector("#btn-bs");
 bsButton.addEventListener("click", () => {
-    numberDisplay.textContent = numberDisplay.textContent.slice(0, -1);
+    if (!justCalculated){
+        numberDisplay.textContent = numberDisplay.textContent.slice(0, -1);
+    }
 })
 
 // operations buttons
@@ -83,12 +90,48 @@ bsButton.addEventListener("click", () => {
 */
 const opButtons = document.querySelectorAll(".btn-op");
 for(let opbtn of opButtons){
-    opbtn.addEventListener("click", () => {});
+    opbtn.addEventListener("click", () => {
+        if (var1 === null && numberDisplay.textContent !== ""){
+            var1 = parseFloat(numberDisplay.textContent);
+            numberDisplay.textContent = "";
+
+            operation = opbtn.textContent;
+        } else {
+            if (numberDisplay.textContent !== "" && justCalculated === false){
+                var2 = parseFloat(numberDisplay.textContent);
+                var1 = operate(var1, var2);
+                numberDisplay.textContent = var1;
+
+                var2 = null;
+                operation = opbtn.textContent;
+            } else {
+                operation = opbtn.textContent;
+            }
+
+            justCalculated = true;
+        }
+    });
 }
 
 // equal button : operate()
 const eqButton = document.querySelector("#btn-eq");
-eqButton.addEventListener("click", () =>{});
+eqButton.addEventListener("click", () =>{
+    if ( (var1 !== null) && (numberDisplay.textContent !== "")){
+        var2 = parseFloat(numberDisplay.textContent);
+        var1 = operate(var1, var2);
+        numberDisplay.textContent = var1;
 
-// current problem is that the program cannot do continuous calculations correctly
-// 
+        var2 = null;
+        justCalculated = true;
+    }
+});
+
+// All Clear Button
+const acButton = document.querySelector("#btn-ac");
+acButton.addEventListener("click", () =>{
+    var1 = null;
+    var2 = null;
+    operation = null;
+    justCalculated = false;
+    numberDisplay.textContent = "";
+});
