@@ -54,3 +54,8 @@ clearButton.addEventListener("click", () => {
     numberDisplay.textContent = "";
 })
 
+// backspace button
+const bsButton = document.querySelector("#btn-bs");
+bsButton.addEventListener("click", () => {
+    numberDisplay.textContent = numberDisplay.textContent.slice(0, -1);
+})
