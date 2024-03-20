@@ -4,8 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="calc-container">
+
+        <div id="display"></div>
+
+        <div class="flex-container">
+            <div class="horizontal-flex-container">
+                <button type="button" class="square-btn" id="btn-ac">AC</button>
+                <button type="button" class="square-btn" id="btn-7">7</button>
+                <button type="button" class="square-btn" id="btn-8">8</button>
+                <button type="button" class="square-btn" id="btn-9">9</button>
+                <button type="button" class="square-btn" id="btn-add">+</button>
+            </div>
+            <div class="horizontal-flex-container">
+                <button type="button" class="square-btn" id="btn-c">C</button>
+                <button type="button" class="square-btn" id="btn-4">4</button>
+                <button type="button" class="square-btn" id="btn-5">5</button>
+                <button type="button" class="square-btn" id="btn-6">6</button>
+                <button type="button" class="square-btn" id="btn-sub">-</button>
+            </div>
+            <div class="horizontal-flex-container">
+                <button type="button" class="square-btn" id="btn-bs">BS</button>
+                <button type="button" class="square-btn" id="btn-1">1</button>
+                <button type="button" class="square-btn" id="btn-2">2</button>
+                <button type="button" class="square-btn" id="btn-3">3</button>
+                <button type="button" class="square-btn" id="btn-mul">*</button>
+            </div>
+            <div class="horizontal-flex-container">
+                <button type="button" class="square-btn" id="btn-empty" style="visibility: hidden;">BS</button>
+                <button type="button" class="square-btn" id="btn-.">.</button>
+                <button type="button" class="square-btn" id="btn-2">0</button>
+                <button type="button" class="square-btn" id="btn-3">=</button>
+                <button type="button" class="square-btn" id="btn-div">/</button>
+            </div>
+        </div>
+
+    </div>
     
     <script src="script.js"></script>
 </body>

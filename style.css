@@ -1,0 +1,44 @@
+* {
+    border-radius: 0.5em;
+}
+body {
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+#calc-container {
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40em;
+    width: 35em;
+    padding: 1em;
+    background-color: rgb(47, 47, 47);
+}
+
+#display {
+    background-color: lightgray;
+    height: 7em;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-flex-container {
+    display: flex;
+    flex-direction: row;
+    /* background-color: green; */
+    height: 7em;
+    margin-top: 1em;
+}
+
+.horizontal-flex-container .square-btn {
+    margin: auto;
+    width: 7em;
+    height: 7em;
+}
+
+
+
