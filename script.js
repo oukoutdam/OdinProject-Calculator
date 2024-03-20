@@ -135,3 +135,15 @@ acButton.addEventListener("click", () =>{
     justCalculated = false;
     numberDisplay.textContent = "";
 });
+
+// dot button
+const dotButton = document.querySelector("#btn-dot");
+dotButton.addEventListener("click", () =>{
+    if (!numberDisplay.textContent.includes(".") ){
+        if (numberDisplay.textContent === ""){
+            numberDisplay.textContent = "0.";
+        } else {
+            numberDisplay.textContent = numberDisplay.textContent + ".";
+        }
+    }
+});
