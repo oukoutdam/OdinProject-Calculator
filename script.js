@@ -1,5 +1,9 @@
 let var1, var2, operation;
+const numberDisplay = document.querySelector("#display");
 
+
+
+// calculator operations
 function add(num1, num2){
     return num1 + num2;
 }
@@ -34,4 +38,12 @@ function operate(){
     }
 
     return null;
+}
+
+// number buttons
+const numButtons = document.querySelectorAll(".btn-num");
+for(let btn of numButtons){
+    btn.addEventListener("click", () =>{
+        numberDisplay.textContent = numberDisplay.textContent + btn.textContent;
+    })
 }
