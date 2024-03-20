@@ -8,14 +8,13 @@ body {
 }
 a {
     color: white;
-    text-align: center;
 }
 
 #calc-container {
     margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
-    height: 40em;
+    height: 38em;
     width: 35em;
     padding: 1em;
     background-color: rgb(43, 43, 43);
@@ -23,7 +22,12 @@ a {
 
 #display {
     background-color: lightgray;
-    height: 7em;
+    height: 12%;
+    text-align: right;
+    font-size: 2em;
+    font-family: "Cousine", monospace;
+    padding: 0;
+    line-height: 2.5em;
 }
 
 .flex-container {
