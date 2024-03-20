@@ -24,16 +24,12 @@ function operate(){
     switch (operation){
         case "+":
             return add(var1, var2);
-            break;
         case "-":
             return sub(var1, var2);
-            break;
         case "*":
             return mul(var1, var2);
-            break;
         case "/":
             return div(var1, var2);
-            break;
     }
 
     return null;
@@ -98,11 +94,7 @@ for(let opbtn of opButtons){
             operation = opbtn.textContent;
         } else {
             if (numberDisplay.textContent !== "" && justCalculated === false){
-                var2 = parseFloat(numberDisplay.textContent);
-                var1 = operate(var1, var2);
-                numberDisplay.textContent = var1;
-
-                var2 = null;
+                grabAndExecute();
                 operation = opbtn.textContent;
             } else {
                 operation = opbtn.textContent;
@@ -117,14 +109,24 @@ for(let opbtn of opButtons){
 const eqButton = document.querySelector("#btn-eq");
 eqButton.addEventListener("click", () =>{
     if ( (var1 !== null) && (numberDisplay.textContent !== "")){
+        grabAndExecute();
+        justCalculated = true;
+    }
+});
+function grabAndExecute(){
         var2 = parseFloat(numberDisplay.textContent);
+        if ( var2 === 0 && operation === "/"){
+            numberDisplay.textContent = "Nope, You Can't Do That.";
+            for(let btn of document.querySelectorAll("button")){
+                btn.disabled = true;
+            }
+            return;
+        }
         var1 = operate(var1, var2);
         numberDisplay.textContent = var1;
 
         var2 = null;
-        justCalculated = true;
-    }
-});
+}
 
 // All Clear Button
 const acButton = document.querySelector("#btn-ac");
@@ -147,3 +149,5 @@ dotButton.addEventListener("click", () =>{
         }
     }
 });
+
+// new problem, during calculation, after finishing a calculation, if I try to press dot and add more decimals, it skips me into the next input
