@@ -4,3 +4,5 @@ This calculator was made for [the Odin Project](https://www.theodinproject.com/)
 Some features I am planning to add later (when I have time) are:
 - keyboard support
 - view operation history
+
+Site is now currently viewable [here](https://oukoutdam.github.io/OdinProject-Calculator/).
